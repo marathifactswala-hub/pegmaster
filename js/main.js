@@ -1,27 +1,68 @@
 // Peg Master Bartending Academy — site behaviour
 (() => {
-  // TODO: replace with the academy's WhatsApp number (country code, no + or spaces)
-  const WHATSAPP_NUMBER = "919999999999";
+  const WHATSAPP_NUMBER = "919922425833";
 
   const root = document.documentElement;
-  root.classList.add("js");
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  // ---- Loader: the logo fills like a poured glass, then the shutter lifts ----
+  const loader = document.querySelector(".loader");
+  const ready = () => root.classList.add("is-ready");
+  const showLoader = loader && !root.classList.contains("no-loader") && !reduceMotion.matches;
+  if (showLoader) {
+    const started = performance.now();
+    let closed = false;
+    const close = () => {
+      if (closed) return;
+      closed = true;
+      const wait = Math.max(0, 1700 - (performance.now() - started)); // let the pour finish
+      setTimeout(() => {
+        loader.classList.add("is-done");
+        setTimeout(ready, 250);
+        loader.addEventListener("transitionend", () => loader.remove(), { once: true });
+        try { sessionStorage.setItem("pm-poured", "1"); } catch (e) {}
+      }, wait);
+    };
+    if (document.readyState === "complete") close();
+    else window.addEventListener("load", close, { once: true });
+    setTimeout(close, 3500); // never hold slow connections hostage
+  } else {
+    loader?.remove();
+    requestAnimationFrame(ready);
+  }
 
   // ---- Footer year ----
   const year = document.getElementById("year");
   if (year) year.textContent = String(new Date().getFullYear());
 
-  // ---- Header shadow on scroll ----
+  // ---- Header border + scroll-linked ticker and badge ----
   const header = document.querySelector(".site-header");
-  const onScroll = () => header.classList.toggle("is-scrolled", window.scrollY > 8);
+  const ticker = document.querySelector(".ticker-track");
+  const badge = document.querySelector(".badge");
+  let ticking = false;
+  const onScroll = () => {
+    ticking = false;
+    const y = window.scrollY;
+    header.classList.toggle("is-scrolled", y > 8);
+    if (reduceMotion.matches) return;
+    if (ticker) {
+      const half = ticker.scrollWidth / 2;
+      ticker.style.transform = `translate3d(${-((y * 0.6) % half)}px, 0, 0)`;
+    }
+    if (badge) badge.style.transform = `rotate(${y * 0.25}deg)`;
+  };
   onScroll();
-  window.addEventListener("scroll", onScroll, { passive: true });
+  window.addEventListener("scroll", () => {
+    if (!ticking) { ticking = true; requestAnimationFrame(onScroll); }
+  }, { passive: true });
 
   // ---- Mobile nav ----
   const toggle = document.querySelector(".nav-toggle");
   const nav = document.getElementById("site-nav");
+  const behindNav = document.querySelectorAll("main, .site-footer, .action-bar, .header-cta, .brand");
   const setNav = (open) => {
     document.body.classList.toggle("nav-open", open);
+    behindNav.forEach((el) => { el.inert = open; });
     toggle.setAttribute("aria-expanded", String(open));
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   };
@@ -35,22 +76,66 @@
   // ---- Hero video: pause control + reduced motion ----
   const video = document.querySelector(".hero-video");
   const videoBtn = document.querySelector(".video-toggle");
-  const setPaused = (paused) => {
-    paused ? video.pause() : video.play().catch(() => {});
-    videoBtn.setAttribute("aria-pressed", String(paused));
-    videoBtn.setAttribute("aria-label", paused ? "Play background video" : "Pause background video");
-  };
   if (video && videoBtn) {
+    const setPaused = (paused) => {
+      paused ? video.pause() : video.play().catch(() => {});
+      videoBtn.setAttribute("aria-pressed", String(paused));
+      videoBtn.setAttribute("aria-label", paused ? "Play background video" : "Pause background video");
+    };
     if (reduceMotion.matches) { video.removeAttribute("autoplay"); setPaused(true); }
     videoBtn.addEventListener("click", () => setPaused(!video.paused));
   }
 
-  // ---- Gallery video plays only while visible ----
+  // ---- Gallery video: tap to play/pause, stops when scrolled away ----
   const galleryVideo = document.querySelector(".gallery-video");
-  if (galleryVideo && "IntersectionObserver" in window && !reduceMotion.matches) {
-    new IntersectionObserver(([entry]) => {
-      entry.isIntersecting ? galleryVideo.play().catch(() => {}) : galleryVideo.pause();
-    }, { threshold: 0.5 }).observe(galleryVideo);
+  const galleryBtn = document.querySelector(".gallery-play");
+  if (galleryVideo && galleryBtn) {
+    const setPlaying = (playing) => {
+      playing ? galleryVideo.play().catch(() => {}) : galleryVideo.pause();
+      galleryBtn.setAttribute("aria-pressed", String(playing));
+      galleryBtn.setAttribute("aria-label", playing ? "Pause video" : "Play video");
+    };
+    galleryBtn.addEventListener("click", () => setPlaying(galleryVideo.paused));
+    if ("IntersectionObserver" in window) {
+      new IntersectionObserver(([entry]) => {
+        if (!entry.isIntersecting && !galleryVideo.paused) setPlaying(false);
+      }).observe(galleryVideo);
+    }
+  }
+
+  // ---- Viral reels: thumbnail facades, YouTube player loads on tap ----
+  const reelList = document.querySelector(".reels");
+  if (reelList) {
+    const facades = new Map();
+    const closeReel = (reel) => {
+      const btn = facades.get(reel);
+      if (!btn) return;
+      reel.querySelector("iframe")?.remove();
+      reel.appendChild(btn);
+      facades.delete(reel);
+    };
+    reelList.addEventListener("click", (e) => {
+      const btn = e.target.closest(".reel-btn");
+      if (!btn) return;
+      const reel = btn.closest(".reel");
+      facades.forEach((_, open) => closeReel(open)); // one player at a time
+      const title = reel.querySelector(".reel-title").textContent;
+      const frame = document.createElement("iframe");
+      frame.src = `https://www.youtube-nocookie.com/embed/${reel.dataset.yt}?autoplay=1&playsinline=1&rel=0`;
+      frame.title = `${title}, YouTube Short by Peg Master Avdhut`;
+      frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
+      frame.allowFullscreen = true;
+      facades.set(reel, btn);
+      btn.remove();
+      reel.appendChild(frame);
+      frame.focus();
+    });
+    document.querySelectorAll(".reels-arrow").forEach((arrow) => {
+      arrow.addEventListener("click", () => {
+        const card = reelList.querySelector(".reel");
+        reelList.scrollBy({ left: Number(arrow.dataset.dir) * (card.offsetWidth + 18) * 2, behavior: reduceMotion.matches ? "auto" : "smooth" });
+      });
+    });
   }
 
   // ---- Reveal on scroll ----
@@ -66,7 +151,7 @@
     reveals.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // ---- Course buttons preselect the course in the form ----
+  // ---- Course links preselect the course in the form ----
   const form = document.getElementById("enquiry-form");
   const courseSelect = document.getElementById("f-course");
   document.querySelectorAll("[data-course]").forEach((btn) => {

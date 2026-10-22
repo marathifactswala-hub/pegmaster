@@ -11,11 +11,16 @@ Website for [pegmasterbartendingacademy.in](https://pegmasterbartendingacademy.i
 
 ## Before going live
 
-Replace the placeholders (search for `9999999999` and `TODO`):
+Contact details are set: WhatsApp/phone +91 99224 25833 and pegmasterbartendingacademy@gmail.com
+(the WhatsApp number also lives in `WHATSAPP_NUMBER` in `js/main.js`).
 
-1. WhatsApp/phone number in `index.html` (6 places) and `WHATSAPP_NUMBER` in `js/main.js`
-2. Email and academy address in the Contact section
-3. Course durations and contents, and the FAQ answers
+Still to confirm (search for `TODO`):
+
+1. Academy address in the Contact section
+2. Course durations and contents
+3. FAQ answers
+
+The "Viral Pours" section embeds YouTube Shorts by ID; view counts are typed into `index.html` and need a manual refresh now and then.
 
 ## Run locally
 
