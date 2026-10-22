@@ -1,0 +1,4 @@
+# Original source media (optimised copies live in /assets)
+/IMG_*
+/logo.PNG
+.vercel
