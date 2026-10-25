@@ -22,6 +22,20 @@ Still to confirm (search for `TODO`):
 
 The "Viral Pours" section embeds YouTube Shorts by ID; view counts are typed into `index.html` and need a manual refresh now and then.
 
+## SEO, AEO and GEO
+
+- `index.html` head: title, description, canonical, Open Graph/Twitter cards, local meta (`geo.region` IN-MH, Pune)
+- Structured data (JSON-LD `@graph` in `index.html`): EducationalOrganization + LocalBusiness, founder Person,
+  WebSite, WebPage (speakable), 3 Courses, FAQPage and the 8 YouTube Shorts as VideoObjects.
+  **The FAQ and course entries mirror the visible text, so update both together.**
+- `sitemap.xml`: page, image and video sitemap
+- `robots.txt`: open to search engines and AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…)
+- `llms.txt`: plain-language summary for AI assistants
+- `404.html`: branded not-found page (Vercel serves it automatically)
+
+After going live: add the site to Google Search Console and Bing Webmaster Tools, submit `sitemap.xml`,
+and create a Google Business Profile for the Pune address.
+
 ## Run locally
 
 ```
