@@ -16,9 +16,11 @@ Contact details are set: WhatsApp/phone +91 99224 25833 and pegmasterbartendinga
 
 Still to confirm (search for `TODO`):
 
-1. Academy address in the Contact section
-2. Course durations and contents
-3. FAQ answers
+1. Academy exact street address in Pune in the Contact section
+2. Course syllabi updated from official documents:
+   - `3-Month Professional Bartending`: based on `Pegmasters_3_Month_Professional_Bartending_Handbook.docx` (5 parts, 30+ modules)
+   - `6-Month Advanced Mixology`: based on `Peg_Master_6_Month_Advanced_Mixology_Detailed_Syllabus.docx` (8 modules)
+   - `Home Bartending Workshop`: 1-day enthusiast masterclass
 
 The "Viral Pours" section embeds YouTube Shorts by ID; view counts are typed into `index.html` and need a manual refresh now and then.
 
