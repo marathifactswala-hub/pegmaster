@@ -20,7 +20,6 @@ Still to confirm (search for `TODO`):
 2. Course syllabi updated from official documents:
    - `3-Month Professional Bartending`: based on `Pegmasters_3_Month_Professional_Bartending_Handbook.docx` (5 parts, 30+ modules)
    - `6-Month Advanced Mixology`: based on `Peg_Master_6_Month_Advanced_Mixology_Detailed_Syllabus.docx` (8 modules)
-   - `Home Bartending Workshop`: 1-day enthusiast masterclass
 
 The "Viral Pours" section embeds YouTube Shorts by ID; view counts are typed into `index.html` and need a manual refresh now and then.
 
@@ -28,7 +27,7 @@ The "Viral Pours" section embeds YouTube Shorts by ID; view counts are typed int
 
 - `index.html` head: title, description, canonical, Open Graph/Twitter cards, local meta (`geo.region` IN-MH, Pune)
 - Structured data (JSON-LD `@graph` in `index.html`): EducationalOrganization + LocalBusiness, founder Person,
-  WebSite, WebPage (speakable), 3 Courses, FAQPage and the 8 YouTube Shorts as VideoObjects.
+  WebSite, WebPage (speakable), 2 Courses, FAQPage and the 8 YouTube Shorts as VideoObjects.
   **The FAQ and course entries mirror the visible text, so update both together.**
 - `sitemap.xml`: page, image and video sitemap
 - `robots.txt`: open to search engines and AI crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended…)
