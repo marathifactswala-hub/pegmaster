@@ -348,7 +348,17 @@ body.nav-open { overflow: hidden; }
   font-size: clamp(1.8rem, 8vw, 2.6rem); line-height: 0.95; min-width: 0;
 }
 .dots { flex: 1 1 24px; min-width: 24px; border-bottom: 3px dotted rgba(21, 14, 12, 0.45); transform: translateY(-6px); }
-.menu-dur { font-family: var(--f-mono); font-weight: 700; color: var(--red-ink); white-space: nowrap; }
+.menu-meta { display: flex; flex-direction: column; align-items: flex-end; gap: 2px; white-space: nowrap; flex-shrink: 0; }
+.menu-dur { font-family: var(--f-mono); font-size: 0.8rem; font-weight: 700; color: var(--muted-paper); text-transform: uppercase; letter-spacing: 0.05em; }
+.menu-fee { display: inline-flex; align-items: baseline; gap: 8px; }
+.fee-cut {
+  font-family: var(--f-mono); font-size: clamp(1.15rem, 3.2vw, 1.3rem); font-weight: 700;
+  color: #8c7664; text-decoration: line-through; text-decoration-thickness: 2px;
+}
+.fee-val {
+  font-family: var(--f-display); font-size: clamp(1.4rem, 5vw, 1.85rem); font-weight: 900;
+  color: var(--red-ink); letter-spacing: 0.02em; line-height: 1;
+}
 .menu-desc { margin-top: 10px; font-family: var(--f-serif); font-style: italic; font-size: 1.18rem; line-height: 1.35; }
 .menu-spec { margin-top: 10px; font-size: 0.92rem; color: var(--muted-paper); }
 .menu-spec i { font-style: normal; color: var(--red-ink); padding-inline: 2px; }
