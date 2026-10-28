@@ -254,11 +254,11 @@ body.nav-open { overflow: hidden; }
 .hero-proof { display: flex; gap: 0; margin-top: 30px; }
 .hero-proof li + li { border-left: 1px solid var(--line-dark); }
 .hero-proof a {
-  display: grid; min-height: 44px; padding: 2px 22px 2px 0; text-decoration: none;
+  display: inline-flex; align-items: baseline; gap: 12px; min-height: 44px; padding: 2px 0; text-decoration: none;
 }
 .hero-proof li + li a { padding-left: 22px; }
-.hero-proof strong { font-family: var(--f-display); font-size: 2.2rem; line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
-.hero-proof span { font-family: var(--f-mono); font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-ink); }
+.hero-proof strong { font-family: var(--f-display); font-size: clamp(2.4rem, 6vw, 3rem); line-height: 1; color: var(--gold); font-variant-numeric: tabular-nums; }
+.hero-proof span { font-family: var(--f-mono); font-size: 0.85rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted-ink); }
 .hero-proof a:hover strong { color: var(--paper); }
 
 .hero-visual { position: relative; width: min(82%, 400px); margin-left: auto; margin-right: 4px; }
@@ -480,6 +480,21 @@ body.nav-open { overflow: hidden; }
 .stats div + div { border-left: 1px solid var(--line-paper); }
 .stats dt { font-family: var(--f-mono); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-paper); }
 .stats dd { font-family: var(--f-display); font-weight: 900; font-size: clamp(1.9rem, 9vw, 2.8rem); line-height: 1; margin-top: 4px; font-variant-numeric: tabular-nums; }
+.mentor-stat {
+  display: inline-flex; align-items: baseline; gap: 12px;
+  margin-top: 24px; padding: 12px 20px;
+  border: 2px solid var(--ink);
+  background: var(--paper-hi);
+  box-shadow: 4px 4px 0 var(--ink);
+}
+.mentor-stat strong {
+  font-family: var(--f-display); font-weight: 900;
+  font-size: clamp(2.2rem, 7vw, 2.9rem); line-height: 1; color: var(--red-ink);
+}
+.mentor-stat span {
+  font-family: var(--f-mono); font-size: 0.82rem; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted-paper);
+}
 .mentor-links { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 26px; }
 
 /* ---------- Viral reels ---------- */
