@@ -37,6 +37,18 @@ The "Viral Pours" section embeds YouTube Shorts by ID; view counts are typed int
 After going live: add the site to Google Search Console and Bing Webmaster Tools, submit `sitemap.xml`,
 and create a Google Business Profile for the Pune address.
 
+## Analytics
+
+Google Analytics 4 lives in `js/analytics.js`. Paste the Measurement ID into `GA_ID`; while it is empty nothing loads.
+It skips localhost and sends these events (mark the first one as a Key event in GA4):
+
+| Event | When |
+|---|---|
+| `generate_lead` | Enquiry form sent to WhatsApp (`course_name`, `batch`) |
+| `whatsapp_click`, `call_click`, `email_click`, `directions_click` | Contact links tapped (`location` = page section) |
+| `course_interest` | "Ask About This Course" tapped (`course_name`) |
+| `social_click` | Instagram / YouTube links (`network`) |
+
 ## Run locally
 
 ```

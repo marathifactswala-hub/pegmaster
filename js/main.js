@@ -194,6 +194,7 @@
     const msg = form.elements.message.value.trim();
     if (msg) lines.push(`Message: ${msg}`);
 
+    document.dispatchEvent(new CustomEvent("pm:enquiry", { detail: { course: courseSelect.value, batch: form.elements.batch.value } }));
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`, "_blank", "noopener");
   });
 
