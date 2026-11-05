@@ -39,15 +39,19 @@ and create a Google Business Profile for the Pune address.
 
 ## Analytics
 
-Google Analytics 4 lives in `js/analytics.js`. Paste the Measurement ID into `GA_ID`; while it is empty nothing loads.
-It skips localhost and sends these events (mark the first one as a Key event in GA4):
+Google Tag Manager container **GTM-MRDVG5FH** is installed in `index.html` (`<head>` script + `<body>` noscript).
+It is skipped on localhost. `js/analytics.js` pushes these custom events into the `dataLayer`:
 
-| Event | When |
-|---|---|
-| `generate_lead` | Enquiry form sent to WhatsApp (`course_name`, `batch`) |
-| `whatsapp_click`, `call_click`, `email_click`, `directions_click` | Contact links tapped (`location` = page section) |
-| `course_interest` | "Ask About This Course" tapped (`course_name`) |
-| `social_click` | Instagram / YouTube links (`network`) |
+| Event | When | Parameters |
+|---|---|---|
+| `generate_lead` | Enquiry form sent to WhatsApp | `course_name`, `batch`, `lead_method` |
+| `whatsapp_click`, `call_click`, `email_click`, `directions_click` | Contact links tapped | `click_location` |
+| `course_interest` | "Ask About This Course" tapped | `course_name`, `click_location` |
+| `social_click` | Instagram / YouTube links | `social_network`, `click_location` |
+
+GA4 itself is configured inside GTM: a Google Tag with the GA4 Measurement ID on All Pages, plus one
+GA4 Event tag with `{{Event}}` as the event name, fired by a Custom Event trigger matching
+`generate_lead|whatsapp_click|call_click|email_click|directions_click|course_interest|social_click` (regex).
 
 ## Run locally
 
