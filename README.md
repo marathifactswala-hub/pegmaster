@@ -49,7 +49,8 @@ It is skipped on localhost. `js/analytics.js` pushes these custom events into th
 | `course_interest` | "Ask About This Course" tapped | `course_name`, `click_location` |
 | `social_click` | Instagram / YouTube links | `social_network`, `click_location` |
 
-GA4 itself is configured inside GTM: a Google Tag with the GA4 Measurement ID on All Pages, plus one
+GA4 property: **G-28XS1RTJ6R** (loaded only through GTM, never directly, to avoid double counting).
+Import `setup/gtm-import-peg-master.json` into the container (Admin → Import Container → Merge). GA4 itself is configured inside GTM: a Google Tag with the GA4 Measurement ID on All Pages, plus one
 GA4 Event tag with `{{Event}}` as the event name, fired by a Custom Event trigger matching
 `generate_lead|whatsapp_click|call_click|email_click|directions_click|course_interest|social_click` (regex).
 
