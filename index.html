@@ -16,6 +16,8 @@
   <!-- Local search -->
   <meta name="geo.region" content="IN-MH">
   <meta name="geo.placename" content="Pune, Maharashtra, India">
+  <meta name="geo.position" content="18.5598848;73.9126785">
+  <meta name="ICBM" content="18.5598848, 73.9126785">
 
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Peg Master Bartending Academy">
@@ -122,7 +124,14 @@
         },
         "sameAs": [
           "https://www.instagram.com/pegmasterbartendingacademy/"
-        ]
+        ],
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 18.5598848,
+          "longitude": 73.9126785
+        },
+        "hasMap": "https://maps.app.goo.gl/MyZ7cU93WrxZB9KKA",
+        "priceRange": "₹25,000 – ₹45,000"
       },
       {
         "@type": "Person",
@@ -182,7 +191,30 @@
           "@id": "https://pegmasterbartendingacademy.in/#organization"
         },
         "url": "https://pegmasterbartendingacademy.in/#courses",
-        "@id": "https://pegmasterbartendingacademy.in/#course-1"
+        "@id": "https://pegmasterbartendingacademy.in/#course-1",
+        "offers": {
+          "@type": "Offer",
+          "price": "25000",
+          "priceCurrency": "INR",
+          "category": "Paid",
+          "availability": "https://schema.org/InStock",
+          "url": "https://pegmasterbartendingacademy.in/#courses"
+        },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "Onsite",
+          "courseWorkload": "P3M",
+          "location": {
+            "@type": "Place",
+            "name": "Peg Master Bartending Academy",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Pune",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            }
+          }
+        }
       },
       {
         "@type": "Course",
@@ -197,7 +229,30 @@
           "@id": "https://pegmasterbartendingacademy.in/#organization"
         },
         "url": "https://pegmasterbartendingacademy.in/#courses",
-        "@id": "https://pegmasterbartendingacademy.in/#course-2"
+        "@id": "https://pegmasterbartendingacademy.in/#course-2",
+        "offers": {
+          "@type": "Offer",
+          "price": "45000",
+          "priceCurrency": "INR",
+          "category": "Paid",
+          "availability": "https://schema.org/InStock",
+          "url": "https://pegmasterbartendingacademy.in/#courses"
+        },
+        "hasCourseInstance": {
+          "@type": "CourseInstance",
+          "courseMode": "Onsite",
+          "courseWorkload": "P6M",
+          "location": {
+            "@type": "Place",
+            "name": "Peg Master Bartending Academy",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Pune",
+              "addressRegion": "Maharashtra",
+              "addressCountry": "IN"
+            }
+          }
+        }
       },
       {
         "@type": "FAQPage",
@@ -224,7 +279,7 @@
             "name": "What are the fees and batch timings?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Fees depend on the course and batch. Message us on WhatsApp and we’ll send the latest fees, dates and timings."
+              "text": "The 3-Month Professional Bartending course is currently offered at ₹25,000/- (regular ₹35,000), and the 6-Month Advanced Mixology course is ₹45,000/- (regular ₹60,000). Weekday and weekend batches are available. Message us on WhatsApp to confirm your seat and get upcoming batch dates."
             }
           },
           {

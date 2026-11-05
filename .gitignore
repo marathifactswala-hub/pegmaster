@@ -2,3 +2,11 @@
 /IMG_*
 /logo.PNG
 .vercel
+
+# Course handbooks: private material, keep out of the public site and repo
+/course/
+
+# Original full-size photos (optimised .webp copies are what the site uses)
+assets/IMG_*.jpg
+assets/IMG_*.jpeg
+assets/IMG_*.png
