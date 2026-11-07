@@ -844,6 +844,7 @@ body.nav-open { overflow: hidden; }
 
 @media (min-width: 960px) and (max-width: 1099px) {
   .nav-social { display: none; }
+  .nav ul a { padding-inline: 8px; letter-spacing: 0.06em; }
 }
 
 /* =========================================================

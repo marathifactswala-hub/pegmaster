@@ -10,7 +10,7 @@ Website for [pegmasterbartendingacademy.in](https://pegmasterbartendingacademy.i
 |---|---|---|
 | Home | `index.html` | Hero video, at-a-glance stats, course cards, campus teaser, mentor, Instagram reels, careers, steps |
 | Courses | `courses.html` | Both courses with full syllabus (`#professional`, `#advanced`), comparison table, curriculum |
-| Campus | `campus.html` | 8-stop photo tour, snapshots, reels, map |
+| Academy Tour | `tour.html` | 8-stop photo tour, snapshots, reels, map |
 | About | `about.html` | Academy story, Learn · Practice · Master pillars, founder, reels |
 | Careers | `careers.html` | 8 career paths and career guidance |
 | FAQ | `faq.html` | Grouped FAQ (Courses & fees, Admissions, Careers) |
@@ -24,7 +24,7 @@ Course links go to `/contact?course=professional` or `?course=advanced`, which p
 - `assets/`: optimised images, video, icons and the social share image. Campus photos are `campus-*-720.webp` / `-1200.webp`
 
 The Instagram reels strip embeds the academy's reels by ID (`/reel/<ID>/embed/`). To show newer reels, replace the IDs in
-the `ig-card` iframes on the Home, Campus and About pages.
+the `ig-card` iframes on the Home, Academy Tour and About pages.
 
 ## Before going live
 
@@ -76,7 +76,7 @@ python -m http.server 5173
 ```
 
 Then open http://127.0.0.1:5173. The simple Python server doesn't do clean URLs, so open pages as
-`/courses.html`, `/campus.html` and so on (on Vercel, `/courses` works).
+`/courses.html`, `/tour.html` and so on (on Vercel, `/courses` works).
 
 ## Deploy
 
