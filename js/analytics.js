@@ -8,6 +8,7 @@
 
   // Where on the page a tap happened, e.g. "hero", "courses", "action_bar"
   const placeOf = (el) => {
+    if (el.closest(".promo")) return "popup";
     if (el.closest(".action-bar")) return "action_bar";
     if (el.closest(".site-header")) return "header";
     if (el.closest(".site-footer")) return "footer";
@@ -31,6 +32,9 @@
       track("social_click", { social_network: href.includes("instagram") ? "instagram" : "youtube", click_location: where });
     }
   });
+
+  // Admissions popup shown (main.js)
+  document.addEventListener("pm:popup", () => track("popup_view"));
 
   // Enquiry form sent to WhatsApp (main.js fires this after validation passes)
   document.addEventListener("pm:enquiry", (e) => {

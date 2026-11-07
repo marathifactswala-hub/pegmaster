@@ -132,6 +132,32 @@
     reveals.forEach((el) => el.classList.add("is-visible"));
   }
 
+  // ---- Admissions popup: once per visit, after 10s or 40% scroll ----
+  const promo = document.querySelector(".promo");
+  if (promo && typeof promo.showModal === "function") {
+    let seen = false;
+    try { seen = !!sessionStorage.getItem("pm-promo"); } catch (e) {}
+    const show = () => {
+      if (seen || document.body.classList.contains("nav-open")) return;
+      seen = true;
+      try { sessionStorage.setItem("pm-promo", "1"); } catch (e) {}
+      window.removeEventListener("scroll", onDeep);
+      promo.showModal();
+      document.dispatchEvent(new CustomEvent("pm:popup"));
+    };
+    const onDeep = () => {
+      const max = document.documentElement.scrollHeight - innerHeight;
+      if (max > 0 && scrollY / max > 0.4) show();
+    };
+    if (!seen) {
+      setTimeout(show, 10000);
+      window.addEventListener("scroll", onDeep, { passive: true });
+    }
+    promo.querySelector(".promo-close").addEventListener("click", () => promo.close());
+    promo.addEventListener("click", (e) => { if (e.target === promo) promo.close(); }); // tap on the backdrop
+    promo.addEventListener("click", (e) => { if (e.target.closest("a")) promo.close(); });
+  }
+
   // ---- Enquiry form (contact page only) ----
   const form = document.getElementById("enquiry-form");
   if (!form) return;

@@ -169,7 +169,7 @@
               {
                 "type": "TEMPLATE",
                 "key": "arg1",
-                "value": "^(generate_lead|whatsapp_click|call_click|email_click|directions_click|course_interest|social_click)$"
+                "value": "^(generate_lead|whatsapp_click|call_click|email_click|directions_click|course_interest|social_click|popup_view)$"
               }
             ]
           }
