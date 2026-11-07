@@ -20,6 +20,7 @@
         loader.classList.add("is-done");
         setTimeout(ready, 250);
         loader.addEventListener("transitionend", () => loader.remove(), { once: true });
+        setTimeout(() => loader.remove(), 1200); // in case transitionend never fires
         try { sessionStorage.setItem("pm-poured", "1"); } catch (e) {}
       }, wait);
     };
@@ -40,14 +41,18 @@
   const ticker = document.querySelector(".ticker-track");
   const badge = document.querySelector(".badge");
   let ticking = false;
+  let tickerHalf = 0;
+  const measureTicker = () => { if (ticker) tickerHalf = ticker.scrollWidth / 2; };
+  measureTicker();
+  window.addEventListener("resize", measureTicker, { passive: true });
+  document.fonts?.ready.then(measureTicker);
   const onScroll = () => {
     ticking = false;
     const y = window.scrollY;
     header.classList.toggle("is-scrolled", y > 8);
     if (reduceMotion.matches) return;
-    if (ticker) {
-      const half = ticker.scrollWidth / 2;
-      ticker.style.transform = `translate3d(${-((y * 0.6) % half)}px, 0, 0)`;
+    if (ticker && tickerHalf) {
+      ticker.style.transform = `translate3d(${-((y * 0.6) % tickerHalf)}px, 0, 0)`;
     }
     if (badge) badge.style.transform = `rotate(${y * 0.25}deg)`;
   };
@@ -67,7 +72,7 @@
     toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
   };
   toggle.addEventListener("click", () => setNav(toggle.getAttribute("aria-expanded") !== "true"));
-  nav.addEventListener("click", (e) => { if (e.target.closest("a[href^='#']")) setNav(false); });
+  nav.addEventListener("click", (e) => { if (e.target.closest("a")) setNav(false); });
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape" && document.body.classList.contains("nav-open")) { setNav(false); toggle.focus(); }
   });
@@ -103,36 +108,12 @@
     }
   }
 
-  // ---- Viral reels: thumbnail facades, YouTube player loads on tap ----
+  // ---- Instagram reels strip: desktop arrows scroll it sideways ----
   const reelList = document.querySelector(".reels");
   if (reelList) {
-    const facades = new Map();
-    const closeReel = (reel) => {
-      const btn = facades.get(reel);
-      if (!btn) return;
-      reel.querySelector("iframe")?.remove();
-      reel.appendChild(btn);
-      facades.delete(reel);
-    };
-    reelList.addEventListener("click", (e) => {
-      const btn = e.target.closest(".reel-btn");
-      if (!btn) return;
-      const reel = btn.closest(".reel");
-      facades.forEach((_, open) => closeReel(open)); // one player at a time
-      const title = reel.querySelector(".reel-title").textContent;
-      const frame = document.createElement("iframe");
-      frame.src = `https://www.youtube-nocookie.com/embed/${reel.dataset.yt}?autoplay=1&playsinline=1&rel=0`;
-      frame.title = `${title}, YouTube Short by Peg Master Avdhut`;
-      frame.allow = "autoplay; encrypted-media; picture-in-picture; fullscreen";
-      frame.allowFullscreen = true;
-      facades.set(reel, btn);
-      btn.remove();
-      reel.appendChild(frame);
-      frame.focus();
-    });
     document.querySelectorAll(".reels-arrow").forEach((arrow) => {
       arrow.addEventListener("click", () => {
-        const card = reelList.querySelector(".reel");
+        const card = reelList.querySelector("li");
         reelList.scrollBy({ left: Number(arrow.dataset.dir) * (card.offsetWidth + 18) * 2, behavior: reduceMotion.matches ? "auto" : "smooth" });
       });
     });
@@ -151,12 +132,15 @@
     reveals.forEach((el) => el.classList.add("is-visible"));
   }
 
-  // ---- Course links preselect the course in the form ----
+  // ---- Enquiry form (contact page only) ----
   const form = document.getElementById("enquiry-form");
+  if (!form) return;
   const courseSelect = document.getElementById("f-course");
-  document.querySelectorAll("[data-course]").forEach((btn) => {
-    btn.addEventListener("click", () => { courseSelect.value = btn.dataset.course; });
-  });
+
+  // Course links arrive as /contact?course=professional|advanced: preselect it
+  const wanted = new URLSearchParams(location.search).get("course");
+  const option = wanted && courseSelect.querySelector(`option[data-key="${CSS.escape(wanted)}"]`);
+  if (option) courseSelect.value = option.value;
 
   // ---- Enquiry form -> WhatsApp ----
   const showError = (input, message) => {

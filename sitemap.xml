@@ -3,45 +3,63 @@
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://pegmasterbartendingacademy.in/</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/og-image.jpg</image:loc>
-      <image:caption>Peg Master Bartending Academy logo with a fire flair bartender</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/flair.webp</image:loc>
-      <image:caption>Bartender performing fire flair, tossing a flaming bottle in front of a neon FLAIR sign</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/pour.webp</image:loc>
-      <image:caption>Bartender straining a freshly shaken cocktail into a coupe glass</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/IMG_9224.webp</image:loc>
-      <image:caption>Illuminated Peg Master Bartending Academy neon sign at the academy entrance</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/IMG_9214.webp</image:loc>
-      <image:caption>Peg Master Bartending Academy entrance with India's Best Bartending Academy banner, bar counter and welcome board</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/IMG_9216.webp</image:loc>
-      <image:caption>Peg Master Bartending Academy classroom with student desks, chairs and projection screen</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/IMG_9215.webp</image:loc>
-      <image:caption>Peg Master Bartending Academy spacious training floor with bar counter and motivational wall art</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://pegmasterbartendingacademy.in/assets/logo-sm.webp</image:loc>
-      <image:caption>Peg Master Bartending Academy</image:caption>
-    </image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/og-image.jpg</image:loc><image:caption>Peg Master Bartending Academy logo with a fire flair bartender</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/pour.webp</image:loc><image:caption>Bartender straining a freshly shaken cocktail into a coupe glass</image:caption></image:image>
+  </url>
+  <url>
+    <loc>https://pegmasterbartendingacademy.in/courses</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-practice-bar-1200.webp</image:loc><image:caption>Practice bar: wooden bar counter in front of shelves stocked with spirit bottles</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/flair.webp</image:loc><image:caption>Bartender performing fire flair in front of a neon FLAIR sign</image:caption></image:image>
+  </url>
+  <url>
+    <loc>https://pegmasterbartendingacademy.in/campus</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-entrance-1200.webp</image:loc><image:caption>Peg Master Bartending Academy entrance with the logo wall and Pune skyline mural</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-lobby-1200.webp</image:loc><image:caption>Academy welcome lobby</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-reception-1200.webp</image:loc><image:caption>Reception with a flair bartending mural: Learn, Practice, Master, Build Your Career</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-counselling-1200.webp</image:loc><image:caption>Counselling room at Peg Master Bartending Academy</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-practice-bar-1200.webp</image:loc><image:caption>Practice bar with a stocked back bar</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-classroom-1200.webp</image:loc><image:caption>Theory classroom with desk chairs and a projection screen</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-training-floor-1200.webp</image:loc><image:caption>Open matted training floor</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/campus-studio-1200.webp</image:loc><image:caption>Content studio with a Peg Master logo backdrop</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/IMG_9224.webp</image:loc><image:caption>Illuminated Peg Master Bartending Academy neon sign</image:caption></image:image>
+    <image:image><image:loc>https://pegmasterbartendingacademy.in/assets/IMG_9214.webp</image:loc><image:caption>Academy entrance with the flair mural, bar counter and welcome board</image:caption></image:image>
+  </url>
+  <url>
+    <loc>https://pegmasterbartendingacademy.in/about</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pegmasterbartendingacademy.in/careers</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pegmasterbartendingacademy.in/faq</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://pegmasterbartendingacademy.in/contact</loc>
+    <lastmod>2026-11-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://pegmasterbartendingacademy.in/llms.txt</loc>
-    <lastmod>2026-11-05</lastmod>
+    <lastmod>2026-11-08</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>
