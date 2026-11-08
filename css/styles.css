@@ -104,6 +104,7 @@ strong { font-weight: 800; }
   color: var(--gold); margin-bottom: 14px;
 }
 .paper .kicker, .paper-2 .kicker { color: var(--red-ink); }
+.h1-kicker { display: block; font-style: normal; line-height: 1.4; }
 .red .kicker { color: var(--cream); }
 
 .sec-head { text-align: center; max-width: 720px; margin: 0 auto 40px; }
