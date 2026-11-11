@@ -10,7 +10,7 @@ Website for [pegmasterbartendingacademy.in](https://pegmasterbartendingacademy.i
 |---|---|---|
 | Home | `index.html` | Hero video, at-a-glance stats, course cards, campus teaser, mentor, Instagram reels, careers, steps |
 | Courses | `courses.html` | Both courses with full syllabus (`#professional`, `#advanced`), comparison table, curriculum |
-| Academy Tour | `tour.html` | 8-stop photo tour, snapshots, reels, map |
+| Academy Tour | `tour.html` | 7-stop photo tour (including the flair room), snapshots, reels, map |
 | About | `about.html` | Academy story, Learn · Practice · Master pillars, founder, reels |
 | Careers | `careers.html` | 8 career paths and career guidance |
 | FAQ | `faq.html` | Grouped FAQ (Courses & fees, Admissions, Careers) |

@@ -983,6 +983,8 @@ body.nav-open { overflow: hidden; }
 .stop-media { background: var(--paper-hi); padding: 8px; box-shadow: 0 22px 40px -22px rgba(21, 14, 12, 0.7); transform: rotate(-1deg); }
 .stop:nth-child(even) .stop-media { transform: rotate(1deg); }
 .stop-media img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.stop-media--pair { display: grid; gap: 8px; }
+@media (min-width: 600px) { .stop-media--pair { grid-template-columns: 1fr 1fr; } }
 .stop-copy { position: relative; }
 .stop-no { display: block; font-family: var(--f-display); font-weight: 900; font-size: 4.2rem; line-height: 0.85; color: transparent; -webkit-text-stroke: 1.5px var(--red-ink); }
 .stop h3 { margin-top: 6px; font-family: var(--f-display); font-weight: 900; text-transform: uppercase; font-size: clamp(2rem, 9vw, 3rem); line-height: 0.92; }
