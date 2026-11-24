@@ -15,3 +15,5 @@ assets/IMG_*.png
 # raw camera footage (the web version is assets/hero-mixology.mp4)
 /*.MOV
 /*.mov
+/*.HEIC
+/*.heic
